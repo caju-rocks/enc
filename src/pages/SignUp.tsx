@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
 
+import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
-import FormControl from '@mui/joy/FormControl';
-import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
-import Link from '@mui/joy/Link';
 import Typography  from '@mui/joy/Typography';
 import Modal from '@mui/joy/Modal';
 import ModalClose from '@mui/joy/ModalClose';
@@ -82,23 +80,37 @@ export default function SignUp() {
           <Typography><strong>Agora você</strong> só precisa confirmar o e-mail cadastrado.</Typography>
         </ModalDialog>
       </Modal>
-      <Typography component="h1" fontSize="xl2" fontWeight="lg">Crie uma conta</Typography>
-      <form onSubmit={handleSubmit}>
-        <FormControl required>
-          <FormLabel>Email</FormLabel>
-          <Input type="email" name="email" />
-        </FormControl>
-        <FormControl required>
-          <FormLabel>Senha</FormLabel>
-          <Input type="password" name="password" />
-        </FormControl>
-        <Button type="submit" fullWidth>
-          Criar conta 
+
+      <Typography color="primary" fontSize="lg" fontWeight="lg">
+          Faça parte dessa comunidade!
+      </Typography>
+      <Typography
+          level="h1"
+          fontWeight="xl"
+          fontSize="clamp(1.875rem, 1.3636rem + 2.1818vw, 3rem)"
+      >
+          Crie sua conta, preencha o formulário abaixo
+      </Typography>
+      <Box component="form" onSubmit={handleSubmit} sx={{ display: 'grid', gap: 2, alignSelf: 'stretch' }}>
+        <Input 
+          size="lg" 
+          type="text" 
+          name="nome" 
+          placeholder="digite seu nome" 
+          sx={{ alignSelf: 'stretch', mt: 2 }} 
+          required />
+        <Input 
+          size="lg" 
+          type="email" 
+          name="email" 
+          placeholder="digite seu email" 
+          required />
+        <Input size="lg" type="password" name="password" placeholder="digite sua senha" required />
+        <Button size="lg" type="submit">
+          Cadastrar 
         </Button>
-      </form>
-      <Link fontSize="sm" href="/signin" fontWeight="lg">
-        Já tem conta? Acesse agora.
-      </Link>
+    </Box>
+
     </>
   );
 }

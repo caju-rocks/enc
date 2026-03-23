@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { RequireAuth } from "./auth";
 
 import { BaseLayout } from "./layouts/DefaultLayout.tsx";
-import { LoginLayout } from "./layouts/LoginLayout";
+import { AuthLayout } from "./layouts/AuthLayout.tsx";
 import HomeLayout from "./layouts/HomeLayout";
 
 import { useAuth } from "./hooks.ts";
@@ -73,7 +73,7 @@ function App() {
           />
           <Route path="/perfil" element={<Profile />} />
         </Route>
-        <Route element={<LoginLayout />}>
+        <Route element={<AuthLayout />}>
           <Route path="/entrar" element={<SignIn />} />
           <Route path="/cadastrar" element={<SignUp />} />
         </Route>

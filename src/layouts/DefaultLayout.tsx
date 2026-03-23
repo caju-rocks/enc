@@ -10,7 +10,7 @@ import Box from '@mui/joy/Box';
 
 import AppHeader from '../components/AppHeader';
 import AppFooter from '../components/AppFooter';
-import Sidebar from '../components/SideBar';
+import Sidebar from '../components/Sidebar';
 
 export const BaseLayout:FC = () => {
 
